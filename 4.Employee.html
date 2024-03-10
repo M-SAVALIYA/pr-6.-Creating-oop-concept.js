@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Employee {
+            constructor(name, salary, hireDate) {
+                this.name = name;
+                this.salary = salary;
+                this.StartingDate = hireDate;
+            }
+
+            calculateYears() {
+                const hireYear = this.StartingDate.getFullYear();
+                const currentYear = new Date().getFullYear();
+                return currentYear - hireYear;
+            }
+        }
+
+
+        const emp1 = new Employee("mohandas", 50000, new Date("2005-01-28"));
+        console.log("Employee Name:", emp1.name);
+        console.log("Month Salary:", emp1.salary);
+        console.log("Starting Date:", emp1.StartingDate.toDateString());
+        console.log("Years of Service:", emp1.calculateYears());
+
+
+    </script>
+
+</body>
+
+</html>

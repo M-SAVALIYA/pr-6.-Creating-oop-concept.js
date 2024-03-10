@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Student {
+            constructor(physics, chemistry, biology, mathematics, computer) {
+                this.physics = physics;
+                this.chemistry = chemistry;
+                this.biology = biology;
+                this.mathematics = mathematics;
+                this.computer = computer;
+            }
+
+            calculateMark() {
+                let Marks = this.physics + this.chemistry + this.biology + this.mathematics + this.computer;
+                let m_Mark = 500; 
+                return (Marks / m_Mark) * 100;
+            }
+
+            Grade() {
+                const percentage = this.calculateMark();
+                let grade;
+
+                if (percentage >= 90) {
+                    grade = 'A';
+                } else if (percentage >= 80) {
+                    grade = 'B';
+                } else if (percentage >= 70) {
+                    grade = 'C';
+                } else if (percentage >= 60) {
+                    grade = 'D';
+                } else if (percentage >= 50) {
+                    grade = 'E';
+                } else {
+                    grade = 'F';
+                }
+
+                return grade;
+            }
+        }
+
+        function main() {
+            const physics = parseFloat(prompt("Enter Physics marks: "));
+            const chemistry = parseFloat(prompt("Enter Chemistry marks: "));
+            const biology = parseFloat(prompt("Enter Biology marks: "));
+            const mathematics = parseFloat(prompt("Enter Mathematics marks: "));
+            const computer = parseFloat(prompt("Enter Computer marks: "));
+
+            const student = new Student(physics, chemistry, biology, mathematics, computer);
+
+            const percentage = student.calculateMark();
+            const grade = student.Grade();
+
+            console.log(`Percentage: ${percentage}%`);
+            console.log(`Grade: ${grade}`);
+        }
+
+        main();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class M_Table {
+            constructor(number) {
+                this.number = number;
+            }
+
+            print() {
+                let multiplication = 1;
+                do {
+                    console.log(`${this.number} * ${multiplication} = ${this.number * multiplication}`);
+                    multiplication++;
+                } while (multiplication <= 10);
+            }
+        }
+
+        const user = parseInt(prompt("Enter your number: "));
+
+        const table = new M_Table(user);
+
+        table.print();
+
+    </script>
+</body>
+
+</html>

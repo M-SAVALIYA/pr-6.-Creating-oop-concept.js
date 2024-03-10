@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        class Library {
+            constructor() {
+                this.books = [];
+            }
+
+            addBook(title, author) {
+                this.books.push({ title, author });
+            }
+
+            removeBook(title) {
+                const bookIndex = this.books.findIndex((book) => book.title === title);
+                if (bookIndex !== -1) {
+                    this.books.splice(bookIndex, 1);
+                    return true; 
+                } else {
+                    return false;
+                }
+            }
+
+            d_Books() {
+                console.log("Library books:");
+                this.books.forEach((book) => console.log(`B_Name => ${book.title}`));
+            }
+        }
+
+
+        const myLibrary = new Library();
+        myLibrary.addBook("kishnlala ni Book");
+        myLibrary.addBook("maulikdas ni Book");
+        myLibrary.addBook("dipenmaster ni Book");
+        myLibrary.addBook("bhimabhai ni Book");
+
+        myLibrary.d_Books();
+
+        console.log("Removing Books :'maulikdas ni Book have hajar ma nathi koia library ma dhako khavo nahi':");
+
+        if (myLibrary.removeBook("maulikdas ni Book")) {
+            console.log("Book removed successfully.");
+        } else {
+            console.log("Book hajar am nathi");
+        }
+
+        myLibrary.d_Books();
+
+    </script>
+
+</body>
+
+</html>

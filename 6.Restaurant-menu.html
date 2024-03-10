@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        
+        class Restaurant {
+            constructor(name) {
+                this.name = name;
+                this.menu = [];
+            }
+
+            addItem(name, price, rating = 0) {
+                this.menu.push({ name, price, rating });
+            }
+
+            removeItemByName(itemName) {
+                const item = this.menu.findIndex((item) => item.name === itemName);
+                if (item !== -1) {
+                    this.menu.splice(item, 1);
+                    return true; 
+                } else {
+                    return false; 
+                }
+            }
+
+            calculateAverageRating() {
+                if (this.menu.length === 0) {
+                    return 0; 
+                }
+
+                const totalRating = this.menu.reduce((acc, item) => acc + item.rating, 0);
+                return totalRating / this.menu.length;
+            }
+
+            displayMenu() {
+                console.log(`Menu for ${this.name}:`);
+                this.menu.forEach((item) => {
+                    console.log(` ${item.name} (${item.price.toFixed(2)})  Rating: ${item.rating}`);
+                });
+            }
+        }
+
+       
+        const restaurant1 = new Restaurant("The present Plate =");
+        restaurant1.addItem("Pizza", 12.99, 4.5);
+        restaurant1.addItem("Pasta", 10.50, 4);
+        restaurant1.addItem("Salad", 8.75, 4.2);
+
+        restaurant1.displayMenu();
+
+        console.log(`Average Rating: ${restaurant1.calculateAverageRating().toFixed(2)}`);
+
+        console.log("Removing 'Pasta':");
+        if (restaurant1.removeItemByName("Pasta")) {
+            console.log("Item removed successfully.");
+        } else {
+            console.log("Item not found.");
+        }
+
+        restaurant1.displayMenu();
+
+
+    </script>
+
+</body>
+
+</html>
